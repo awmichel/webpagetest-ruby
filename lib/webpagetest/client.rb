@@ -41,7 +41,7 @@ module Webpagetest
         end
       end
       return not_available (response) unless response.status == 200
-      @response = Response.new(Hashie::Mash.new(JSON.parse(response.body)))
+      @response = Response.new(self, Hashie::Mash.new(JSON.parse(response.body)), connection)
     end
 
     # Gets the result of a test based on its id
@@ -49,7 +49,7 @@ module Webpagetest
       test_params = Hashie::Mash.new( {test: test_id, pagespeed: 1} )
       response = make_request(RESULT_BASE, test_params)
       return not_available (response) unless response.status == 200
-      @response = Response.new(Hashie::Mash.new(JSON.parse(response.body)), false)
+      @response = Response.new(self, Hashie::Mash.new(JSON.parse(response.body)), false)
     end
 
     # Gets all available test locations
