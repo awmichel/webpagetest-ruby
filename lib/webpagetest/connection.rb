@@ -8,15 +8,15 @@ module Webpagetest
       options = Hashie::Mash.new( {
         request: :url_encoded,
         response: :logger,
-        adapter: Faraday.default_adapter,        
+        adapter: Faraday.default_adapter,
       } ) if options.nil?
-      
+
       url = options.url || ENDPOINT
 
       connection = Faraday.new(url: url) do |faraday|
-        faraday.request  options.request
-        faraday.response options.response
-        faraday.adapter  options.adapter
+        faraday.request  options.request if options.request
+        faraday.response options.response if options.response
+        faraday.adapter  options.adapter if options.adapter
       end
     end
   end

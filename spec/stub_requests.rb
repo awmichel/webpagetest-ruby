@@ -90,7 +90,7 @@ module StubRequests
               location: "Dulles_IE6",
               Browser: "IE 6"
             }
-          } 
+          }
         }.to_json
       )
   end
@@ -178,7 +178,7 @@ module StubRequests
               render: 234,
               fullyLoaded: 1384,
               requests: [],
-              cached: 0,                  
+              cached: 0,
               domElements: 82,
               firstPaint: 235,
               SpeedIndexDT: 768,
